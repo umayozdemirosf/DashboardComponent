@@ -3,16 +3,18 @@
     <div data-lightning-out="true"></div>
     <div data-lightning-out2="true"></div>
     <div data-lightning-out3="true"></div>
-
+    <div data-lightning-out4="true"></div>
   <script>
         const appName = 'c:osfLoyaltyDashboardWrapper';
         const componentName = 'c:osfLoyaltyProgramDropdown';
         const componentName2 = 'c:osfClientMembershipInformation';
         const componentName3 ='c:osfB2CDynamicTable';
+        const componentName4 = 'c:osfTierProgressBar';
         const lightningEndpoint = 'https://connectedcommerce--dev.sandbox.my.site.com';
         const targetElement = document.querySelector("[data-lightning-out]");
         const targetElement2 = document.querySelector("[data-lightning-out2]");
         const targetElement3 = document.querySelector("[data-lightning-out3]");
+        const targetElement4 = document.querySelector("[data-lightning-out4]");
         const componentAttributes = {
             accountId : '0014C00000kjbdfQAA'
         };
@@ -22,7 +24,9 @@
         const componentAttributes3 = {
             accountId : '0014C00000kjbdfQAA'
         };
-
+        const componentAttributes4 = {
+            loyaltyMemberId : '0lM4C000000Gmd8UAC'
+        };
         $Lightning.use(
                 appName,
                 function (){
@@ -62,6 +66,21 @@
                     targetElement3,
                     function (cmp){
                         console.log('lightning component 3 created');
+                    }
+            );
+            },
+            lightningEndpoint
+    );
+    
+     $Lightning.use(
+            appName,
+            function (){
+            $Lightning.createComponent(
+                    componentName4,
+                    componentAttributes4,
+                    targetElement4,
+                    function (cmp){
+                        console.log('lightning component 4 created');
                     }
             );
             },
