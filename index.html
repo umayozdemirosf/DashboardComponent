@@ -1,0 +1,29 @@
+<html>
+    <script src="https://connectedcommerce--dev.sandbox.my.site.com/lightning/lightning.out.js"></script>
+    <div data-lightning-out="true"></div>
+
+  <script>
+        const appName = 'c:osfClientMembershipInformationWrapper';
+        const componentName = 'c:osfClientMembershipInformation';
+        const lightningEndpoint = 'https://connectedcommerce--dev.sandbox.my.site.com';
+        const targetElement = document.querySelector("[data-lightning-out]");
+        const componentAttributes = {
+
+        };
+
+        $Lightning.use(
+                appName,
+                function (){
+                $Lightning.createComponent(
+                        componentName,
+                        componentAttributes,
+                        targetElement,
+                        function (cmp){
+                            console.log('lightning component created');
+                        }
+                );
+                },
+                lightningEndpoint
+        );
+    </script>
+</html>
