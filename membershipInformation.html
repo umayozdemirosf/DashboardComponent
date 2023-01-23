@@ -3,12 +3,17 @@
     <div data-lightning-out="true"></div>
 
   <script>
-        const appName = 'c:osfLoyaltyProgramDropdownWrapper';
+        const appName = 'c:osfLoyaltyDashboardWrapper';
         const componentName = 'c:osfLoyaltyProgramDropdown';
+        const componentName2 = 'osfClientMembershipInformation';
         const lightningEndpoint = 'https://connectedcommerce--dev.sandbox.my.site.com';
         const targetElement = document.querySelector("[data-lightning-out]");
+        const targetElement2 = document.querySelector("[data-lightning]");
         const componentAttributes = {
             accountId : '0014C00000teMtHQAU'
+        };
+        const componentAttributes2 = {
+            loyaltyMemberId : '0lM4C0000008OLTUA2'
         };
 
         $Lightning.use(
@@ -25,5 +30,20 @@
                 },
                 lightningEndpoint
         );
+
+        $Lightning.use(
+            appName,
+            function (){
+            $Lightning.createComponent(
+                    componentName2,
+                    componentAttributes2,
+                    targetElement2,
+                    function (cmp){
+                        console.log('lightning component 2 created');
+                    }
+            );
+            },
+            lightningEndpoint
+    );
     </script>
 </html>
